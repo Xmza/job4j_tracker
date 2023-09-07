@@ -9,4 +9,5 @@ public class Story {
         wolf.eat(girl);
         petya.kill(wolf);
     }
+
 }
