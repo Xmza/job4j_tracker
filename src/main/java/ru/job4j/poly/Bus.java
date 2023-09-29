@@ -4,13 +4,11 @@ public class Bus implements Transport {
     @Override
     public void go() {
         System.out.println("Автобус начинает ехать");
-
     }
 
     @Override
     public void passenger(int numPass) {
         System.out.println("В автобусе " + numPass + " пассажиров");
-
     }
 
     @Override
