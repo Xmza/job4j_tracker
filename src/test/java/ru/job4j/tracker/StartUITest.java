@@ -22,7 +22,7 @@ class StartUITest {
         tracker.add(item);
         String[] answers = {
                 String.valueOf(item.getId()),
-                "edited item", "item not edited"
+                "edited item"
         };
         StartUI.replaceItem(new StubInput(answers), tracker);
         Item edited = tracker.findById(item.getId());
@@ -38,7 +38,6 @@ class StartUITest {
                 String.valueOf(item.getId())
         };
         StartUI.deleteItem(new StubInput(answers), tracker);
-        Item deleted = tracker.findById(item.getId());
         assertThat(tracker.findAll()).isEmpty();
     }
 }
