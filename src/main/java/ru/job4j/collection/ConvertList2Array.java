@@ -19,6 +19,7 @@ public class ConvertList2Array {
             }
         }
         return array;
+
     }
 
     public static void main(String[] args) {
