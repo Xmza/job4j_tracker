@@ -1,45 +1,45 @@
 package ru.job4j.tracker;
 
-public class StartUI {
-    private final Output out;
+import ru.job4j.tracker.action.*;
+import ru.job4j.tracker.action.User;
 
-    public StartUI(Output out) {
-        this.out = out;
+public class StartUI {
+    private final Output output;
+
+    public StartUI(Output output) {
+        this.output = output;
     }
 
-    public void init(Input input, Tracker tracker, UserAction[] actions) {
+    public void init(Input input, Tracker tracker, User[] actions) {
         boolean run = true;
         while (run) {
             showMenu(actions);
-            int select = input.askInt("Select: ");
-            if (select < 0 || select >= actions.length) {
-                out.println("Неверный ввод, вы можете выбрать: 0 .. " + (actions.length - 1));
-                continue;
-            }
-            UserAction action = actions[select];
+            System.out.println();
+            int select = Integer.parseInt(input.askStr("Выбрать: "));
+            User action = actions[select];
             run = action.execute(input, tracker);
         }
     }
 
-    private void showMenu(UserAction[] actions) {
-        out.println("Menu: ");
+    private void showMenu(User[] actions) {
+        output.println("Меню: ");
         for (int i = 0; i < actions.length; i++) {
-            out.println(i + ". " + actions[i].name());
+            output.println(i + ". " + actions[i].name());
         }
     }
 
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ValidateInput(output, new ConsoleInput());
+        Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
-        UserAction[] actions = {
-                new CreateAction(output),
-                new FindAllAction(output),
-                new ReplaceAction(output),
-                new DeleteAction(output),
-                new FindByIdAction(output),
-                new FindByNameAction(output),
-                new ExitAction(output)
+        User[] actions = {
+                new Create(output),
+                new FindAll(output),
+                new Replace(output),
+                new Delete(output),
+                new FindById(output),
+                new FindByName(output),
+                new Exit(output)
         };
         new StartUI(output).init(input, tracker, actions);
     }

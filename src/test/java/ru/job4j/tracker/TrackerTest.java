@@ -1,9 +1,12 @@
 package ru.job4j.tracker;
 
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TrackerTest {
+class TrackerTest {
+
     @Test
     public void whenTestFindById() {
         Tracker tracker = new Tracker();
@@ -64,7 +67,7 @@ public class TrackerTest {
     }
 
     @Test
-    public void whenReplaceItemIsNotSuccessful() {
+    public void whenReplaceItemNotSuccessful() {
         Tracker tracker = new Tracker();
         Item item = new Item("Bug");
         tracker.add(item);

@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.Objects;
+
 public interface Output {
-    void println(Object obj);
+    void println(Object object);
 }

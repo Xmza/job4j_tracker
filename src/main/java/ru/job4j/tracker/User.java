@@ -2,7 +2,9 @@ package ru.job4j.tracker;
 
 public class User {
     private int id;
+
     private String username;
+
     private String password;
 
     public User(int id, String username, String password) {
@@ -26,9 +28,9 @@ public class User {
     @Override
     public String toString() {
         return "User{"
-                + "id=" + id
+                +  "id=" + id
                 + ", username='" + username + '\''
-                + ", password='" + password + '\''
+                +  ", password='" + password + '\''
                 + '}';
     }
 }
