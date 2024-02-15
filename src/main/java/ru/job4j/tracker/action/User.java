@@ -7,4 +7,5 @@ public interface User {
     String name();
 
     boolean execute(Input input, Tracker tracker);
+
 }
