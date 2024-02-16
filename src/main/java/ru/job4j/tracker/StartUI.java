@@ -16,6 +16,10 @@ public class StartUI {
             showMenu(actions);
             System.out.println();
             int select = Integer.parseInt(input.askStr("Выбрать: "));
+            if (select < 0 || select >= actions.length) {
+                output.println("Неверный ввод, вы можете выбрать: 0 .. " + (actions.length - 1));
+                continue;
+            }
             User action = actions[select];
             run = action.execute(input, tracker);
         }
@@ -30,7 +34,7 @@ public class StartUI {
 
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ConsoleInput();
+        Input input = new ValidateInput(output, new ConsoleInput());
         Tracker tracker = new Tracker();
         User[] actions = {
                 new Create(output),
