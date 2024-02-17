@@ -59,5 +59,4 @@ public class Tracker {
             items.remove(index);
         }
     }
-
 }
