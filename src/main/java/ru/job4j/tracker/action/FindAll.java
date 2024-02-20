@@ -23,7 +23,7 @@ public class FindAll implements User {
     public boolean execute(Input input, Tracker tracker) {
         output.println("=== Вывод всех заявок ===");
         List<Item> items = tracker.findAll();
-        if (items.isEmpty()) {
+        if (!items.isEmpty()) {
             for (Item item : items) {
                 System.out.println(item);
             }

@@ -24,7 +24,7 @@ public class FindByName implements User {
         output.println("=== Поиск заявок по имени ===");
         String name = input.askStr("Введите имя: ");
         List<Item> items = tracker.findByName(name);
-        if (items.isEmpty()) {
+        if (!items.isEmpty()) {
             for (Item item : items) {
                 output.println(item);
             }
