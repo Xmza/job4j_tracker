@@ -1,8 +1,6 @@
 package ru.job4j.queue;
 
-import javax.imageio.ImageTranscoder;
 import java.util.Deque;
-import java.util.Iterator;
 
 public class ReconstructPhrase {
     private final Deque<Character> descendingElements;
@@ -16,17 +14,21 @@ public class ReconstructPhrase {
 
     private String getEveElements() {
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < evenElements.size(); i += 2) {
-                result.append(evenElements.toArray()[i]);
+        int size = evenElements.size();
+        for (int i = 0; i < size; i++) {
+            char ch = evenElements.poll();
+            if (i % 2 == 0) {
+                result.append(ch);
+            }
+            evenElements.addLast(ch);
         }
-        return result.toString();
+            return result.toString();
     }
 
     private String getDescendingElements() {
         StringBuilder result = new StringBuilder();
-        Iterator<Character> iterator = descendingElements.descendingIterator();
-        for (int i = 0; i < descendingElements.size(); i++) {
-            result.append(iterator.next());
+        while (!descendingElements.isEmpty()) {
+            result.append(descendingElements.pollLast());
         }
         return result.toString();
     }
