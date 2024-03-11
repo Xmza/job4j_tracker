@@ -20,7 +20,6 @@ public class ReconstructPhrase {
             if (i % 2 == 0) {
                 result.append(ch);
             }
-            evenElements.addLast(ch);
         }
             return result.toString();
     }
