@@ -41,6 +41,6 @@ public class User {
 
     @Override
     public int hashCode() {
-        return Objects.hash(passport, username);
+        return Objects.hash(passport);
     }
 }
